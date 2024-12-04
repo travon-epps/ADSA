@@ -62,9 +62,7 @@ The Regional Ecological Assessment Protocol (REAP) is a screening level assessme
 
 ## Data Collection:
 
-Data collection begins with identifying a reliable and accurate data source and using tools to download the dataset for examination. The drive is mounted and imported to Colab, creating a link to the data source. Next, the necessary libraries are imported which contain pre-written code which perform specific tasks. Python has several libraries which are powerful tools from data analysis and visualization.
-
-Once the dataset are loaded and the libraries imported, the dataset can be read and the dataframe created. Now the data is checked and the data cleaning process begins.
+Data collection begins with identifying a reliable and accurate data source and using tools to download the dataset for examination. 
 
 ## Examine the dataset
 
@@ -84,8 +82,6 @@ import seaborn as sns               # Statistical Data Visualization
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
-# Force pandas to display full numbers instead of scientific notation
-# pd.options.display.float_format = '{:.000f}'.format
 
 # Library to suppress warnings
 import warnings
@@ -97,7 +93,6 @@ warnings.filterwarnings('ignore')
 
 ```python
 # Read the dataset
-#path = pd.read_csv('/replace this text with the path to the file/filename.csv')
 path = pd.read_csv('https://data.cdc.gov/api/views/hksd-2xuw/rows.csv?accessType=DOWNLOAD')
 
 # Create the Dataframe
@@ -106,13 +101,7 @@ cdc = pd.DataFrame(path)
 
 #### Understanding the Dataset
 - Checking first elements of the DataFrame with .head( ) method
-- After you run the code above, nothing will appear.
-- So you have to write df to see your data. But instead of seeing all the data, we are going to use the “.head( )” method to see the first five elements of the data.
-- Before you run the read_csv code, you can write df.head( ) below. So it’s going to be like this:
 
-Inside the parentheses, we can write the number of elements that we want to see.
-If we leave it blank, it will show the first five elements.
-If we write 7 inside of the parentheses, it will show the first 7 elements of the dataframe.
 
 
 ```python
@@ -544,9 +533,6 @@ cdc.head(10)
 
 
 Checking last elements of the DataFrame with .tail() method
-There is also a method to see the see last n number of elements.
-The method is called .tail().
-The same rule is also applied here. If we leave the parentheses blank, it will be set as 5, if we write 7 inside of the parentheses, it will show the last 7 elements of the dataframe.
 
 
 ```python
@@ -997,9 +983,7 @@ cdc['Topic'].unique()
 
 
 ```python
-# display the dimensions of the data
-# This is the number of rows and columns in the data
-# Syntax: DataFrame.shape
+# Display the dimensions of the data
 cdc.shape
 ```
 
@@ -1010,7 +994,7 @@ cdc.shape
 
 
 
-* State the shape of the dataframe :
+* Shape of the dataframe :
   - The dateframe features 311,745 rows and 34 columns.
   - There are 10,599,330 datapoints expected in the dataset.
 
@@ -1071,7 +1055,7 @@ cdc.info()
 
 
 ### Observations of the Data Set
-Describe the dataset. There are 311745 rows and 34 columns. The data types are `int64`, `object`, and `float64`.  Based on the number of expected data points, and those listed by the `.info()` method, there are 10 missing (null) values are there.
+There are 311745 rows and 34 columns. The data types are `int64`, `object`, and `float64`.  Based on the number of expected data points, and those listed by the `.info()` method, there are 10 missing (null) values.
 
 The number of non-null values does not match the total number expected based on the number of rows in the dataframe. This indicates the presence of missing values that will need further investigation.
 
@@ -1096,12 +1080,10 @@ The steps of analysis and preparation of the data for statistical modeling has s
 6. Study the correlation between data variables for key insights and future feature engineering.
 7. Detection of outliers that may contribute to the skewness in data or add to the kurtosis affecting the data ranges.
 
-### Headers Update and Map New Column
+### Headers
 
 >
-- To aid in analysis and visualization add a new columns as needed. For instance instead of an entire state name, add a column that has a two letter abbreviation for the state.
-- The list of headers requires standardization, these will be updated ensure uniformity.
-- Update ALL CAPS or all lowercase to the appropriate case. These can be updated to Title Case.
+
 
 
 ```python
@@ -1129,7 +1111,7 @@ cdcColumns
 
 
 ### Missing Values
-If we encounter with missing data, what we can do:
+If we encounter with missing data:
 
 - leave as is
 - drop them with `dropna()`
@@ -1160,7 +1142,6 @@ The best imputation technique to use depends on the specific dataset and the ana
 
 ```python
 # Determine the number of missing values
-# Syntax: DataFrame.isnull().sum()
 cdc.isnull().sum()
 ```
 
@@ -1207,7 +1188,7 @@ cdc.isnull().sum()
 
 
 ```python
-# Let's create a function to determine the percentage of missing values
+# Function to determine the percentage of missing values
 # Typically less than five percent missing values may not affect the results
 # More than 5% can be dropped, replaced with existing data, or imputed using mean or median.
 # Syntax: def missing(DataFrame):
@@ -1218,7 +1199,6 @@ def missing(DataFrame):
            round((DataFrame.isnull().sum() * 100/ len(DataFrame)),2).sort_values(ascending=False))
 
 # Call the function and execute
-# Syntax: missing(DataFrame)
 missing(cdc)
 ```
 
@@ -1504,11 +1484,6 @@ cdc.head()
 
 
 ```python
-# Drop the rows
-# Syntax: DataFrame.dropna(*, axis=0, how=_NoDefault.no_default, thresh=_NoDefault.no_default, subset=None, inplace=False, ignore_index=False)
-#cdc.dropna(*, axis=0, how=_NoDefault.no_default, thresh=_NoDefault.no_default, subset=None, inplace=False, ignore_index=False)
-
-
 # Drop the columns by name
 # Use either labels=[list] and columns=labels or columns=[list]
 # Syntax: DataFrame.drop(labels=None, *, axis=0, index=None, columns=None, level=None, inplace=False, errors='raise')
@@ -1520,11 +1495,9 @@ labels=['StratificationID3', 'StratificationCategoryID3',
         'DataValueFootnoteSymbol', 'DataValueFootnote', 'DataValueAlt',
        'Geolocation', 'TopicID', 'DataValueTypeID',
        'StratificationCategoryID1', 'StratificationID1']
-#cdc.drop(labels, *, axis=0, index=None, columns=None, level=None, inplace=False, errors='raise')
 cdc.drop(labels, axis='columns',inplace=True)
 
 # Check the null count again
-# Syntax: DataFrame.isnull().sum()
 cdc.isnull().sum()
 
 ```
@@ -1735,8 +1708,6 @@ cdc.head()
 - The missing values are concentrated in Stratification (2 and 3) related columns, footnotes, confidence limits, response and responseid. This will not affect the analysis.
 - Based on the information that is present, the missing values will be removed with no affect on the analysis.
 
-### Observations on Missing Values
-Include observations on the methods used to update the dataFrame for missing values and complete the cleaning process.  Did you use a method to impute the missing data? Did you choose to drop null or NaN values? Did you split the dataset to create subsets? Use this space to explain the techniques, approach, and reasoning.
 
 
 # Data Exploration:
@@ -1753,9 +1724,8 @@ Include observations on the methods used to update the dataFrame for missing val
 
 ```python
 ## Describe the descriptive stats
-# Syntax: DataFrame.describe()
 cdc.describe()
-# Note: If we do not pass include=object to the describe(), it would return statistics for numeric variables only
+# include=object was not passed to describe(), therefore, it will return statistics for numeric variables only
 ```
 
 
@@ -2306,6 +2276,7 @@ States_Percent
 
 
 ```python
+# Create column StatesPct
 cdc['StatesPct'] = cdc['LocationAbbr'].map(States_Percent)
 cdc.head(20)
 ```
@@ -2747,6 +2718,7 @@ cdc.head(20)
 
 
 ```python
+# Identify the unique values in column Topic
 cdc['Topic'].unique()
 ```
 
@@ -3201,17 +3173,6 @@ cdcCOPD.head()
 
 
 
-#### Observations of Descriptive Statistics
-The following are some observations about each table: <br>
-DataFrame:
- * What are the minimum and maximum values?
- * What are the mean values for the data?
- * Are the mean and median values close to each other? If so this could indicate a normal distribution of the data. If not, this could indicate skewness in the data. If the mean is smaller than the median the values are likely skewed left, toward the minimum value. If the mean is larger than the median then there is skewness to the right indicating more high values in the data distribution.
- * What are the quartile ranges for the data? What value is the 25th percentile of the data? What value is the 75th percentile of the data?
- * How does the standard deviation for the data compare to the mean? High values for the standard deviation indicate a large variation in the data and likely a wide spread of the data across the range from minimum to maximum.<br>
-
-Dataframe Subset:
-* Consider the same questions above.
 
 ### Correlation
 
@@ -3326,10 +3287,6 @@ cdcCorr
 
 
 
-```python
-#cdcAsthma20.info()
-```
-
 
 ```python
 # Create correlation matrix
@@ -3340,7 +3297,6 @@ cdcAsthmaCorr = cdcAsthma.corr(numeric_only=True)
 # Now call the correlation variable to see the correlation matrix.
 cdcAsthmaCorr
 
-#### Change state_pct to numeric
 ```
 
 
@@ -3448,7 +3404,6 @@ cdcCOPDCorr = cdcCOPD.corr(numeric_only=True)
 # Now call the correlation variable to see the correlation matrix.
 cdcCOPDCorr
 
-#### Change state_pct to numeric
 ```
 
 
@@ -3549,7 +3504,7 @@ cdcCOPDCorr
 ### Observations of the Correlation Matrix
 
 
-Correlation matrices can be viewed in a visualization or a visual table that shows the relative relationship between the variables using color while stating their values. We will use a color map (cmap) with a high contrast to see those that correlate by color. Remember that a correlation matrix is a square that is a mirror image across the diagonal. This means the bottom half of the matric looks exactly like the top half of the matrix. To minimize the values to view, let's use the `triu` argument to view just the lower half of the correlation matrix.
+Correlation matrices can be viewed in a visualization or a visual table that shows the relative relationship between the variables using color while stating their values. A color map (cmap) is used with a high contrast to see those that correlate by color. To minimize the values to view, the `triu` argument is used to view just the lower half of the correlation matrix.
 
 
 ```python
@@ -3599,9 +3554,6 @@ plt.show()
 
 
 
-```python
-#cdcAsthma20Corr
-```
 
 
 ```python
@@ -3669,60 +3621,11 @@ plt.show()
     
 
 
-### Observations
-- Are all the values the same color? This is called multicolinearity and indicates there are multiple independent variables that each have a strong relationship on each other. For instance if you are examining crime data categories such as robbery may also correlate to vehicular theft as the assailant was charged with both crimes. While they are independent crimes, they often occur together indicating a relationship. Multicolinear relationships complicate feature engineering for machine learning models and may need to have their dimensionality reduced (dropping columns or further subsets) to make sure the model trains well for those specific variables.
-
-- Are specific variables correlated higher than others?
-- Are there negative correlations indicating an inverse relationship in the variables? This indicates that as one variable is increasing, the other variable is decreasing. Negative correlations can be high (close to -1) or low (close to 0).
-- Remember that correlation does not equal causation. Be careful with your wording when establishing relationships between the variables.
-- Are there variables that lack correlation to any other variable? These are variables that may not be needed in the analysis and can be used to reduce the dimensionality of the data.
-
-Additional Statistical methods are possible. Python is a mathematical programming language and can perform inferential statistics, hypothesis testing, probability distributions, and multivariate statistical analysis.
 
 ## Visualizations
-Create Visualizations to aid in the interpretation of the data and answering of the research problem. Using Python plotting libraries seaborn, matplotlib, plotly, or bokeh multiple plots will be completed to see trends and insights in the data.
-  - Use charts, graphs, maps, and other plots to answer questions related to your research question.
-  - Bivariate analysis is the process of examing two variables to visualize their relationship. Choose variables from the correlation matrix to see how they affect each other.
-  - Be sure to use the correct chart for the type of information you need.
+Visualizations aid in the interpretation of the data and answering of the research problem. Using Python plotting libraries seaborn, matplotlib, plotly, or bokeh multiple plots will be completed to see trends and insights in the data.
 
-### Choosing a Visualization
-The factors for data visualizations have multiple factors to consider when selecting the plot best suited to display the data.
-- <u>The type of data</u>: <br>
-The type of data you are working with will dictate the type of visualization that is most appropriate. For example, if you have categorical data, you might use a bar chart or a pie chart. If you have numerical data, you might use a line chart or a scatter plot.
 
-- <u>The number of variables</u>: <br>
-If you are visualizing only one variable, you have more flexibility in terms of the type of visualization you can use. However, if you are visualizing multiple variables, you need to choose a visualization that can effectively show the relationships between the variables.
-
-- <u>The goal of the visualization</u>: <br>
-What do you want the visualization to achieve? Do you want to show trends over time? Do you want to compare different groups of data? Do you want to show the distribution of data? The goal of your visualization will help you to choose the right type of visualization.
-
-- <u>The audience</u>: <br>
-Who is the audience for your visualization? Are they familiar with data visualization? Do they have a technical background? The audience for your visualization will affect the complexity and level of detail that you use.
-
-- <u>Available tools</u>: <br>
-What libraries do you have access to? There are many different visualization libraries available for Python, such as Matplotlib, Seaborn, and Plotly. The software you have access to will affect the types of visualizations that you can create.
-
-- <u>Use multiple visualizations</u>:<br>
-It is often helpful to use multiple visualizations to show different aspects of your data. This can help to tell a more complete story and to make the data more understandable.
-
-- <u>Make sure the visualization is clear and concise</u>:<br>
-The visualization should be easy to understand at a glance. The labels should be clear and the colors should be consistent.
-
-- <u>Your own preferences</u>:<br>
- Ultimately, the best visualization is the one that you think is most effective and visually appealing. Don't be afraid to experiment with different types of visualizations until you find one that you like.
-
-### Guide to Stunning Visualizations
-It is important that the visualizations created also display content that keep the reader engaged in the research.
-- <u>Use a consistent style</u>:<br> Once you have chosen a visualization, use a consistent style throughout your visualization. This will make your visualization look more professional and polished.
-
-- <u>Label your axes</u>:<br>
-Always label your axes with clear and concise labels. This will help your audience understand what the visualization is showing.
-
-- <u>Use a legend</u>:<br>
-If your visualization uses multiple colors or shapes, use a legend to identify what each color or shape represents.
-
-- <u>Annotate your visualization</u>:<br>
-Use annotations to highlight important features of your visualization. This can help your audience understand the data more easily.
 
 
 ```python
@@ -3732,7 +3635,6 @@ cdcAsthma2020 = cdcAsthma.query('YearStart ==  2020')
 
 
 ```python
-#cdcAsthma20[['LocationAbbr','LocationID']].sort_values(by='LocationID').head(10)
 cdcAsthma2020[['LocationAbbr','LocationID']].sort_values(by='LocationID').head(10)
 ```
 

@@ -46,8 +46,8 @@ https://catalog.data.gov/dataset/air-quality-measures-on-the-national-environmen
 This dataset combines the Environmental Protection Agency (EPA) Air Quality System (AQS) database containing data from approximately 4,000 monitoring stations around the country, mainly in urban areas. Data from the AQS is considered the "gold standard" for determining outdoor air pollution. Centers for Disease Control and Prevention (CDC) and EPA have worked together to develop a statistical model (Downscaler) to make modeled predictions available for environmental public health tracking purposes in areas of the country that do not have monitors and to fill in the time gaps when monitors may not be recording data.
 
 * **Global Fire Emissions Database, Version 4.1 (GFEDv4)** <br>
-Last Updated: July 27, 2023 <br>
-https://catalog.data.gov/dataset/global-fire-emissions-database-version-4-1-gfedv4 <br>
+Last Updated: September 2017 <br>
+[https://catalog.data.gov/dataset/global-fire-emissions-database-version-4-1-gfedv4](https://daac.ornl.gov/VEGETATION/guides/fire_emissions_v4_R1.html) <br>
 This dataset provides global estimates of monthly burned area, monthly emissions and fractional contributions of different fire types. National Aeronautics and Space Administration (NASA) emissions data are available for carbon (C), dry matter (DM), carbon dioxide (CO2), carbon monoxide (CO), methane (CH4), hydrogen (H2), nitrous oxide (N2O), nitrogen oxides (NOx), non-methane hydrocarbons (NMHC), organic carbon (OC), black carbon (BC), particulate matter less than 2.5 microns (PM2.5), total particulate matter (TPM), and sulfur dioxide (SO2) among others. These data are yearly totals by region, globally, and by fire source for each region.
 
 * **PM2.5 and cardiovascular mortality rate data: Trends modified by county socioeconomic status in 2,132 US counties** <br>
@@ -56,8 +56,8 @@ https://catalog.data.gov/dataset/annual-pm2-5-and-cardiovascular-mortality-rate-
 U.S. Environmental Protection Agency Data on county socioeconomic status for 2,132 US counties and each county’s average annual cardiovascular mortality rate (CMR) and total PM2.5 concentration for 21 years (1990-2010). County CMR, PM2.5, and socioeconomic data were obtained from the U.S. National Center for Health Statistics, U.S. Environmental Protection Agency’s Community Multiscale Air Quality modeling system, and the U.S. Census, respectively.
 
 * **EPA Region 6 REAP Sustainability Geodatabase** <br>
-Last Updated: November 10, 2020 <br>
-https://catalog.data.gov/dataset/epa-region-6-reap-sustainability-geodatabase <br>
+Last Updated: October 14, 2024 <br>
+https://catalog.data.gov/dataset/epa-region-6-reap-sustainability-geodatabase12 <br>
 The Regional Ecological Assessment Protocol (REAP) is a screening level assessment tool created as a way to identify priority ecological resources within the five EPA Region 6 states (Arkansas, Louisiana, New Mexico, Oklahoma, and Texas). The REAP divides eighteen individual measures into three main sub-layers: diversity, rarity, and sustainability. This geodatabase contains the 2 grids (sustain and sustainrank) representing the sustainability layer which describes the state of the environment in terms of stability (sustainble areas are those that can maintain themselves into the future without human management). There are eleven measures that make up the sustainability layer: contiguous land cover, regularity of ecosystem boundary, appropriateness of land cover, waterway obstruction, road density, airport noise, Superfund sites, Resource Conservation and Recovery Act (RCRA) sites, water quality, air quality, and urban/agriculture disturbance.
 
 ## Data Collection:

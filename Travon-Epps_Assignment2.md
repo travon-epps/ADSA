@@ -51,7 +51,6 @@ The Regional Ecological Assessment Protocol (REAP) is a screening level assessme
 
 ## Data Collection:
 
-Data collection begins with identifying a reliable and accurate data source and using tools to download the dataset for examination. 
 
 ## Examine the dataset
 

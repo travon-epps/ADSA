@@ -1098,19 +1098,6 @@ cdcColumns
 
 
 
-### Missing Values
-If we encounter with missing data:
-
-- leave as is
-- drop them with `dropna()`
-- fill missing value with `fillna()`
-- fill missing values with test statistics like mean
-- One of the most common problems in data science is missing values.
-- To detect them, there is a beautiful method which is called `.isnull()`. With this method, we can get a boolean series (True or False).
-- When we add the `.sum()` we can get the total count of missing values.
-
-
-
 #### Missing Values Imputation Methods
 Missing value imputation is a technique used to replace missing values in a dataset with estimated values. This is done to preserve the data and make it more complete for analysis. There are many different imputation techniques available, each with its own advantages and disadvantages.
 

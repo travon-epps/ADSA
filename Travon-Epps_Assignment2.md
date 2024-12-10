@@ -11,12 +11,12 @@ There are seven main steps in the data science process. The specific steps that 
 
 
 
-## Developing a Research Question
+## Research Question
 
 Chronic diseases defined by the Center for Disease Control and Prevention (CDC) are conditions that last 1 year or longer and require ongoing medical attention.  Asthma and chronic obstructive pulmonary disease (COPD) are two of the chronic disease indicators.  There is no cure for either chronic disease.  Some of the highest cases of asthma and COPD are among Black Americans.  Does states with a high percentage of Black/African American population have higher crude prevalence rates of asthma and COPD?
 
 
-# Problem Statement
+## Problem Statement
 **Examining the correlation between the crude prevelance levels of asthma and COPD in states where there is a high percentage of Black/African Americans living.**
 
 

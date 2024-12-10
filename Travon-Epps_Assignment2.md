@@ -1,19 +1,8 @@
-# Data Science Process
-There are seven main steps in the data science process. The specific steps that you take will vary depending on the specific problem that you are trying to solve. However, the general process will be the same.
-1. Problem framing: This is the first and most important step in the data science process. It involves understanding the research question that you are trying to solve and defining the specific questions that you want to answer with data.
-2. Data Collection: Once you have defined your problem, you need to acquire the data that you need to answer your questions. This can involve collecting data from a variety of sources, such as surveys, databases, and social media.
-3. Data Cleaning: Once you have acquired your data, you need to prepare it for analysis. This involves cleaning the data, removing errors and outliers, and formatting it in a way that is easy to work with.
-4. Data Exploration: This step involves exploring your data to get a better understanding of it. This includes looking at summary statistics, creating visualizations, and asking questions about the data.
-5. Modeling: This step involves building models to predict or explain the data. There are many different types of models that you can use, such as linear regression, logistic regression, and decision trees.
-6. Evaluation: Once you have built your models, you need to evaluate them to see how well they perform. This involves using metrics such as accuracy, precision, and recall to measure the performance of your models.
-7. Deployment: Once you have found a model that performs well, you need to deploy it so that it can be used to make predictions or decisions. This can involve creating a web application, a mobile app, or a dashboard.
-
-
-
+# Introduction
+Chronic diseases defined by the Center for Disease Control and Prevention (CDC) are conditions that last 1 year or longer and require ongoing medical attention.  Asthma and chronic obstructive pulmonary disease (COPD) are two of the chronic disease indicators.  There is no cure for either chronic disease.  Some of the highest cases of asthma and COPD are among Black Americans.  
 
 ## Research Question
-
-Chronic diseases defined by the Center for Disease Control and Prevention (CDC) are conditions that last 1 year or longer and require ongoing medical attention.  Asthma and chronic obstructive pulmonary disease (COPD) are two of the chronic disease indicators.  There is no cure for either chronic disease.  Some of the highest cases of asthma and COPD are among Black Americans.  Does states with a high percentage of Black/African American population have higher crude prevalence rates of asthma and COPD?
+Does states with a high percentage of Black/African American population have higher crude prevalence rates of asthma and COPD?
 
 
 ## Problem Statement

@@ -986,12 +986,6 @@ cdc.shape
   - The dateframe features 311,745 rows and 34 columns.
   - There are 10,599,330 datapoints expected in the dataset.
 
-### Data Types
-* The main data types in Pandas dataframes are `object`, `float`, `int64`, `bool` and `datetime64`. In order to understand each attribute of the data, it is always good to know the data type of each column.
-
-##### `.info()` method
-* This method prints information about a DataFrame including the index `dtype` and column dtypes, non-null values and memory usage.
-
 
 ```python
 # Let's check the basic information about the dataset
@@ -1059,18 +1053,6 @@ There are 15 categorical variables: `LocationAbbr`, `LocationDesc`, `DataSource`
 
 
 ## Data Analysis and Preparation
-The steps of analysis and preparation of the data for statistical modeling has several steps:
-1. Check dimensions of the dataframe to determine the number rows and columns. This increases understanding of the data structure and size.
-2. Check data types, ensuring the data types are correct. Refer data definitions to validate the results. For example dates including year, month, and day should be updated from integers or strings to `datetime` for ease of use in time series analysis.
-3. Update data types based on the business definition, changing the data types as per requirement.
-4. Using Python and Numpy methods, examine the summary statistics. This assists in determination of the data scale, including the relative minima and maxima for the range. The distribution of data with early determination of skewness or kurtosis are also visible for outliers in the data.
-5. Checking for missing values that may cause noise in machine learning models and abberations in visualizations.
-6. Study the correlation between data variables for key insights and future feature engineering.
-7. Detection of outliers that may contribute to the skewness in data or add to the kurtosis affecting the data ranges.
-
-### Headers
-
->
 
 
 
@@ -1099,20 +1081,6 @@ cdcColumns
 
 
 #### Missing Values Imputation Methods
-Missing value imputation is a technique used to replace missing values in a dataset with estimated values. This is done to preserve the data and make it more complete for analysis. There are many different imputation techniques available, each with its own advantages and disadvantages.
-
-Some of the most common imputation techniques include:
-
-- Mean imputation: This is the simplest imputation technique. It involves replacing missing values with the mean of the observed values for that variable. This is a quick and easy technique, but it can introduce bias if the distribution of the missing values is not normal. Mean as a measure is greatly affected by outliers or if the distribution of the data or column is not normally-distributed. Therefore, it’s wise to first check the distribution of the column before deciding if to use a mean imputation or median imputation.
-- Median imputation: This is similar to mean imputation, but it replaces missing values with the median of the observed values for that variable. This is a more robust technique than mean imputation, but it can still introduce bias if the distribution of the missing values is not symmetric.
-- Mode imputation: This replaces missing values with the most frequent value of the observed values for that variable. This is a simple technique that is not as likely to introduce bias as mean or median imputation. However, it can be problematic if the most frequent value is not representative of the overall distribution of the data.
-- Regression imputation: This technique uses a regression model to predict the missing values. The model is trained on the observed values for the variable with missing values and other related variables. The predicted values are then used to replace the missing values. This is a more sophisticated technique than the other imputation techniques, but it can be more time-consuming and computationally expensive.
-
-The best imputation technique to use depends on the specific dataset and the analysis that you are trying to do. In general, it is a good idea to try multiple imputation techniques and see which one works best for your data.
-
-- Mean imputation works better if the distribution is normally-distributed or has a Gaussian distribution, while median imputation is preferable for skewed distribution(be it right or left)
-- If the values are not normally distributed and show some skewness toward extreme high values or extreme low values consider using the median for imputation. The median is not suceptible to skewness in the data.
-- Sometimes it is advisable to drop the columns when the NULL values are significantly more than the other values present.
 
 
 ```python
@@ -1691,10 +1659,6 @@ cdc.head()
 ## Summary Statistics
 
 ##### `.describe()` method
-
-* This method is used to get a summary of numeric values in your dataset.
-* It calculates the mean, standard deviation, minimum value, maximum value, 1st percentile, 2nd percentile, 3rd percentile of the columns with numeric values.
-* It also counts the number of variables in the dataset.
 
 
 ```python
@@ -3151,12 +3115,6 @@ cdcCOPD.head()
 
 ### Correlation
 
-* Correlation is a statistic that measures the degree to which two variables move in relation to each other. A positive correlation indicates
-* the extent to which those variables increase or decrease in parallel; a negative correlation indicates the extent to which one variable
-* increases as the other decreases. Correction among multiple variables can be represented in the form of a matrix. This allows us to see which pairs have the high correlations.
-* correlation Correlation is a mutual relationship or connection between two or more things. It takes a value between (+1) and (-1)
-* One important note here; Correlation can be created between integer values, so columns come with string values will not be included.
-
 
 ```python
 # Create correlation matrix
@@ -3479,9 +3437,6 @@ cdcCOPDCorr
 ### Observations of the Correlation Matrix
 
 
-Correlation matrices can be viewed in a visualization or a visual table that shows the relative relationship between the variables using color while stating their values. A color map (cmap) is used with a high contrast to see those that correlate by color. To minimize the values to view, the `triu` argument is used to view just the lower half of the correlation matrix.
-
-
 ```python
 # Set seaborn themes
 sns.set_theme(style='white')
@@ -3598,9 +3553,6 @@ plt.show()
 
 
 ## Visualizations
-Visualizations aid in the interpretation of the data and answering of the research problem. Using Python plotting libraries seaborn, matplotlib, plotly, or bokeh multiple plots will be completed to see trends and insights in the data.
-
-
 
 
 ```python
